@@ -84,6 +84,7 @@ class SearchRecyclerViewAdapter (
             Glide.with(context)
                 .asBitmap()
                 .load(photoByteArray)
+                .placeholder(R.drawable.default_user)
                 .into(viewHolder.imageUser);
 
             viewHolder.root.setOnClickListener { userClickAction(user) }
