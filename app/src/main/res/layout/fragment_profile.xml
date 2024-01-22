@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.profile.ProfileFragment">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="160dp"
+        android:layout_height="65dp"
+        android:src="@drawable/logo"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/layout_swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        android:paddingHorizontal="15dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View
+                android:id="@+id/background_edit"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/background_edit_profile"
+                android:layout_marginTop="-10dp"
+                android:layout_marginBottom="-10dp"
+                app:layout_constraintTop_toTopOf="@id/image_photo"
+                app:layout_constraintBottom_toBottomOf="@id/image_photo"
+                />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_photo"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@color/black"
+                android:layout_margin="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/text_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:letterSpacing="0"
+                android:textColor="@color/dark_gray"
+                android:textStyle="bold"
+                android:layout_marginHorizontal="10dp"
+                app:layout_constraintStart_toEndOf="@id/image_photo"
+                app:layout_constraintEnd_toStartOf="@id/image_edit"
+                app:layout_constraintTop_toTopOf="@id/image_photo"
+                app:layout_constraintBottom_toBottomOf="@id/image_photo" />
+
+            <ImageView
+                android:id="@+id/image_edit"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/edit"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/image_photo"
+                app:layout_constraintBottom_toBottomOf="@id/image_photo" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_liked"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/layout_saved"
+                app:layout_constraintTop_toBottomOf="@id/background_edit">
+                <ImageView
+                    android:id="@+id/image_liked"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/baseline_favorite_border_24"
+                    app:tint="@color/purple_500"
+                    android:layout_marginBottom="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/text_liked"
+                    app:layout_constraintHorizontal_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/text_liked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sviđanja"
+                    android:textColor="@color/purple_500"
+                    android:textSize="20sp"
+                    android:letterSpacing="0"
+                    android:layout_marginStart="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/image_liked"
+                    app:layout_constraintBottom_toBottomOf="@id/image_liked"
+                    app:layout_constraintStart_toEndOf="@id/image_liked"
+                    app:layout_constraintHorizontal_chainStyle="packed" />
+
+                <View
+                    android:id="@+id/bottom_line_liked"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/purple_500"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_saved"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/layout_liked"
+                app:layout_constraintTop_toBottomOf="@id/background_edit">
+                <ImageView
+                    android:id="@+id/image_saved"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/baseline_bookmark_border_24"
+                    app:tint="@color/gray_icon"
+                    android:layout_marginBottom="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/text_saved"
+                    app:layout_constraintHorizontal_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/text_saved"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sačuvano"
+                    android:textColor="@color/gray_icon"
+                    android:textSize="20sp"
+                    android:letterSpacing="0"
+                    android:layout_marginStart="5dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/image_saved"
+                    app:layout_constraintBottom_toBottomOf="@id/image_saved"
+                    app:layout_constraintStart_toEndOf="@id/image_saved"
+                    app:layout_constraintHorizontal_chainStyle="packed" />
+
+                <View
+                    android:id="@+id/bottom_line_saved"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/gray_icon"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/layout_liked" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

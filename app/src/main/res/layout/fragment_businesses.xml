@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.businesses.BusinessesFragment">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="160dp"
+        android:layout_height="65dp"
+        android:src="@drawable/logo"
+        android:layout_marginTop="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/image_button_filters"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/filter_alt"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/logo"
+        app:layout_constraintBottom_toBottomOf="@id/logo" />
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Biznisi"
+        android:textAlignment="textStart"
+        android:textSize="32sp"
+        android:letterSpacing="0"
+        android:textColor="@color/dark_gray"
+        android:textStyle="bold"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/layout_swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/text_title">
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_filters"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/dark_overlay" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_filters"
+            android:clickable="true"
+            android:paddingBottom="20dp"
+            android:paddingHorizontal="5dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+            <ImageView
+                android:id="@+id/filters_img_close"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/baseline_close_24"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/filters_text_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Filteri"
+                android:textSize="24sp"
+                android:letterSpacing="0"
+                android:textColor="@color/dark_gray"
+                android:textStyle="bold"
+                android:layout_marginStart="10dp"
+                app:layout_constraintTop_toTopOf="@id/filters_img_close"
+                app:layout_constraintBottom_toBottomOf="@id/filters_img_close"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/filters_text_legal_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Privredna društva"
+                android:textSize="16sp"
+                android:letterSpacing="0.01"
+                android:textColor="@color/dark_gray"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintTop_toBottomOf="@id/filters_text_title"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/filters_layout_legal_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/filters_text_legal_type"
+                android:orientation="vertical">
+                <CheckBox
+                    android:id="@+id/filters_checkbox_legal_type_doo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:text="D.O.O." />
+                <CheckBox
+                    android:id="@+id/filters_checkbox_legal_type_ad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:text="A.D." />
+                <CheckBox
+                    android:id="@+id/filters_checkbox_legal_type_ko"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:text="K.O." />
+                <CheckBox
+                    android:id="@+id/filters_checkbox_legal_type_od"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:text="O.D." />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/filters_text_type"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Tip biznisa"
+                android:textSize="16sp"
+                android:letterSpacing="0.01"
+                android:textColor="@color/dark_gray"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="10dp"
+                app:layout_constraintTop_toBottomOf="@id/filters_layout_legal_type"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/filters_layout_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/filters_text_type"
+                android:orientation="vertical">
+                <CheckBox
+                    android:id="@+id/filters_checkbox_type_edukacija"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:text="Edukacija" />
+                <CheckBox
+                    android:id="@+id/filters_checkbox_type_ekologija"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:text="Ekologija" />
+                <CheckBox
+                    android:id="@+id/filters_checkbox_type_usluge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:text="Usluge" />
+                <CheckBox
+                    android:id="@+id/filters_checkbox_type_it"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:text="IT" />
+                <CheckBox
+                    android:id="@+id/filters_checkbox_type_restoran"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:text="Restoran" />
+                <CheckBox
+                    android:id="@+id/filters_checkbox_type_turizam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:text="Turizam" />
+                <CheckBox
+                    android:id="@+id/filters_checkbox_type_zdravlje"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:text="Zdravlje" />
+                <CheckBox
+                    android:id="@+id/filters_checkbox_type_drugo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="0dp"
+                    android:text="Drugo..." />
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/filters_button_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Otkaži"
+                android:textColor="@color/gray_text"
+                android:textSize="12sp"
+                android:textAllCaps="false"
+                android:letterSpacing="0.03"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:paddingVertical="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/filters_layout_type"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/filters_button_apply"
+                />
+
+            <Button
+                android:id="@+id/filters_button_apply"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Primijeni"
+                android:textSize="12sp"
+                android:textAllCaps="false"
+                android:letterSpacing="0.03"
+                android:paddingVertical="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/filters_layout_type"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/filters_button_cancel"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

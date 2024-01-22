@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home"
+        android:title="Početna" />
+
+    <item
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/search_black"
+        android:title="Pretraga" />
+
+    <item
+        android:id="@+id/navigation_your_posts"
+        android:icon="@drawable/outline_article_24"
+        android:title="Tvoje objave" />
+
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/outline_account_circle_24"
+        android:title="Profil" />
+
+</menu>
